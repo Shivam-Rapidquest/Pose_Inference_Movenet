@@ -429,7 +429,7 @@ while True
   ret,image = capture_object.read()
   if ret:
     frame_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-    keypoints_with_scores = run_inference(movenet, frame_rgb, crop_region,crop_size=[input_size, input_size])
+    keypoints_with_scores = run_inference(movenet, frame_rgb, crop_region,crop_size=[192, 192])
     """Below we get output_image which can be used wherever required"""
     output_image = draw_prediction_on_image(frame_rgb.astype(np.int32),keypoints_with_scores, crop_region=None,close_figure=True)
     crop_region = determine_crop_region(keypoints_with_scores,image_height,image_width)
